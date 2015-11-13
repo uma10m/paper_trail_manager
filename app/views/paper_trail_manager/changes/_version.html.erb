@@ -1,6 +1,6 @@
 <tr class='change_row <%= "change_event_#{version.event} #{version.event} #{version.event}, #{version.item_type.downcase}" %>'>
   <td class='change_time'>
-    <button onclick="jsonRetriever()"><span class='change_id'>Change #<%= version.id %></span></button>
+    <button href="#myModal"><span class='change_id'>Change #<%= version.id %></span></button>
     <div class='date'> <%= version.created_at.strftime('%Y-%m-%d') %> </div>
     <div class='time'> <%= version.created_at.strftime('%H:%M:%S') %> </div>
   </td>
@@ -38,3 +38,24 @@
     <% end %>
   </td>
 </tr>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
