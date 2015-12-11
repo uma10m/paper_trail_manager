@@ -15,9 +15,8 @@ class PaperTrailManager::ChangesController
       flash[:error] = "You do not have permission to list changes."
       return(redirect_to root_url)
     end
-    @q = params[:q] || nil
-    @q.sorts = 'created_at DESC, id DESC' if @q.sorts.empty?
-    @versions = PaperTrail::Version.ransack(@q).result(distinct: true)
+
+    @versions = PaperTrail::Version.order('created_at DESC, id DESC')
     if params[:type]
       @versions = @versions.where(:item_type => params[:type])
     end

@@ -7,16 +7,6 @@
   <%= ([link_to('All', changes_path)] + change_item_types.map { |type| link_to(type.pluralize, changes_path(:type => type)) }).join(' | ').html_safe %>
 </p>
 
-<%= search_form_for @q do |f| %>
-  <%= f.label :search%>
-  <%= f.search_field :whodunnit_or_object_or_event_cont %>
-  </br>
-  <%= f.label "created between" %>
-  </br>
-  <%= f.search_field :created_at_gteq, id: 'datepicker',:class=>'datepicker' %>
-  <%= f.search_field :created_at_lteq, id: 'datepicker',:class=>'datepicker' %>
-  <%= f.submit %>
-<% end %>
 <table class='changes_table'>
   <tfoot>
     <tr>
