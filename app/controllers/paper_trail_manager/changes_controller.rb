@@ -18,7 +18,7 @@ class PaperTrailManager::ChangesController
 
     @q = PaperTrail::Version.ransack(params[:q])
     @q.sorts = 'created_at DESC, id DESC' if @q.sorts.empty?
-    @versions = @q.result(distinct: true)
+    @versions=q.result(distinct: true)
     if params[:type]
       @versions = @versions.where(:item_type => params[:type])
     end
